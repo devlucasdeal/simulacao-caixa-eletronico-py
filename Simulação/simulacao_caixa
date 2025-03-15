@@ -1,0 +1,32 @@
+saldo = 1000
+limite_saque = 500
+cheque_especial = 150
+limite_com_cheque_especial = 650
+saque = float(input("Quanto você quer sacar? "))
+
+if saque <= limite_saque:
+    print("Saque autorizado, aguarde a contagem de notas!")
+    confirmacao = input(f"Você confirma o valor de R${int(saque)}?\n[1] Sim! | [2] Não!\nSua resposta: ")
+    if confirmacao == "1":
+        print("Obrigado, operação realizada, dinheiro entregue!")
+    else:
+        print("Ação não realizada, solicitação cancelada, tente novamente!")
+        
+
+            
+elif saque > limite_saque and saque <= limite_com_cheque_especial:
+    print(f"Saque autorizado com uso de cheque especial no valor de R$ {cheque_especial}, aguarde a contagem de notas!")
+    confirmacao = input(f"Você confirma o valor de R${int(saque)}?\n[1] Sim! | [2] Não!\nSua Resposta: ")
+    if confirmacao == "1":
+        print("Obrigado, operação realizada, dinheiro entregue!")
+    else:
+        print("Ação não realizada, solicitação cancelada, tente novamente!")
+
+elif saque > limite_com_cheque_especial and saque <= saldo:
+    print("Você ultrapassou o seu limite de saque + cheque especial, fale com o seu gerente!\nOperação cancelada.")
+
+elif saque > saldo:
+    print("Você ultrapassou o seu limite de saque e não tem saldo suficiente para realizar essa transação!\nOperação cancelada.")
+
+else:
+    print("Cancelado, tente novamente.")
